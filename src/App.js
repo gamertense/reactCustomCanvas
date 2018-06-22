@@ -3,7 +3,7 @@ import React, { Component } from "react";
 // import { render } from "react-dom";
 import { Stage, Layer, Transformer } from "react-konva";
 
-import ColoredRect from './containers/ColoredRect'
+import Canvas from './containers/Canvas'
 
 class Handler extends React.Component {
   componentDidMount() {
@@ -33,8 +33,7 @@ class App extends Component {
     return (
       <Stage width={window.innerWidth} height={window.innerHeight}>
         <Layer>
-          <ColoredRect name="rect1" color='red' />
-          <ColoredRect name="rect2" color='green' />
+          <Canvas />
           <Handler rectName={this.state.rectName} />
         </Layer>
       </Stage>
