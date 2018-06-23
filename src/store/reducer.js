@@ -1,14 +1,12 @@
 const initialState = {
     rectangles: [
         {
-            name: 'rect1',
-            x: 50,
-            y: 50
+            name: 'rect1', color: 'red',
+            x: 50, y: 50
         },
         {
-            name: 'rect2',
-            x: 20,
-            y: 20
+            name: 'rect2', color: 'green',
+            x: 20, y: 20
         }
     ],
     selected: 'rect1'
