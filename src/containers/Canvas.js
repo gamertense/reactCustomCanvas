@@ -6,10 +6,6 @@ import ColoredRect from './ColoredRect';
 import Transform from './Transform';
 
 class Canvas extends Component {
-    onDragEndHandler = (e) => {
-        console.log(e.target);
-    };
-
     render() {
         return (
             <Stage width={window.innerWidth} height={window.innerHeight}>

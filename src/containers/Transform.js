@@ -1,11 +1,12 @@
 import React from "react";
+import {connect} from 'react-redux';
 import {Transformer} from "react-konva";
 
 class Transform extends React.Component {
     componentDidMount() {
         // not really "react-way". But it works.
         const stage = this.transformer.getStage();
-        const rectangle = stage.findOne('.' + 'rect1');
+        const rectangle = stage.findOne('.' + this.props.selected_rect);
         this.transformer.attachTo(rectangle);
         this.transformer.getLayer().batchDraw();
     }
@@ -21,4 +22,10 @@ class Transform extends React.Component {
     }
 }
 
-export default Transform;
+const mapStateToProps = state => {
+    return {
+        selected_rect: state.selected
+    }
+};
+
+export default connect(mapStateToProps)(Transform);

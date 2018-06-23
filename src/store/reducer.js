@@ -10,17 +10,18 @@ const initialState = {
             x: 20,
             y: 20
         }
-    ]
+    ],
+    selected: 'rect1'
 };
 
 const reducer = (state = initialState, action) => {
+    console.log(state);
     let rect_name = null;
     switch (action.type) {
         case 'LOCATION':
             rect_name = action.event.target.attrs.name;
             const new_x = action.event.target.attrs.x;
             const new_y = action.event.target.attrs.y;
-            // console.log(state);
             return {
                 rectangles: updateState(state, rect_name, action.type, new_x, new_y)
             };
@@ -30,6 +31,12 @@ const reducer = (state = initialState, action) => {
             const scale_y = action.event.target.attrs.scaleY;
             return {
                 rectangles: updateState(state, rect_name, action.type, scale_x, scale_y)
+            };
+        case 'SELECTED_RECT':
+            rect_name = action.event.target.attrs.name;
+            return {
+                ...state,
+                selected: rect_name
             };
         default:
             return state;

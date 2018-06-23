@@ -13,6 +13,7 @@ class ColoredRect extends Component {
                 width={50}
                 height={50}
                 fill={this.props.color}
+                onClick={this.props.onSelect}
                 onDragEnd={this.props.updateLocation}
                 onTransformEnd={this.props.updateScale}
                 draggable
@@ -24,7 +25,8 @@ class ColoredRect extends Component {
 const mapDispatchToProps = dispatch => {
     return {
         updateLocation: (e) => dispatch({'type': 'LOCATION', 'event': e}),
-        updateScale: (e) => dispatch({'type': 'TRANSFORM', 'event': e})
+        updateScale: (e) => dispatch({'type': 'TRANSFORM', 'event': e}),
+        updateSelected: (e) => dispatch({'type': 'SELECTED_RECT', 'event': e})
     }
 };
 
