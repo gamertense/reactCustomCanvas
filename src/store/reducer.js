@@ -11,32 +11,48 @@ const initialState = {
             y: 20
         }
     ]
-}
+};
 
 const reducer = (state = initialState, action) => {
-    if (action.type === 'LOCATION') {
-        const rect_name = action.event.target.attrs.name;
-        // let selected_rect = state.filter(rect => rect.name == rect_name)
-        const new_x = action.event.target.attrs.x;
-        const new_y = action.event.target.attrs.y;
-        console.log(new_x + ' ' + new_y);
+    let rect_name = null;
+    switch (action.type) {
+        case 'LOCATION':
+            rect_name = action.event.target.attrs.name;
+            const new_x = action.event.target.attrs.x;
+            const new_y = action.event.target.attrs.y;
+            // console.log(state);
+            return {
+                rectangles: updateState(state, rect_name, action.type, new_x, new_y)
+            };
+        case 'TRANSFORM':
+            rect_name = action.event.target.attrs.name;
+            const scale_x = action.event.target.attrs.scaleX;
+            const scale_y = action.event.target.attrs.scaleY;
+            return {
+                rectangles: updateState(state, rect_name, action.type, scale_x, scale_y)
+            }
 
-        //Update x and y coordinate of selected rectangle
-        let update = require('immutability-helper');
-        let rect_index = state.rectangles.findIndex(function (rect) {
-            return rect.name === rect_name;
-        });
-        let updatedRect = update(state.rectangles[rect_index], { x: { $set: new_x }, y: { $set: new_y } });
-        let newstate = update(state.rectangles, {
-            $splice: [[rect_index, 1, updatedRect]]
-        });
-
-        console.log(newstate);
-        return {
-            rectangles: newstate
-        }
     }
     return state;
-}
+};
+
+const updateState = (state, rect_name, actionType, newX, newY) => {
+    //Update x and y coordinate of selected rectangle
+    const update = require('immutability-helper');
+    const rect_index = state.rectangles.findIndex(function (rect) {
+        return rect.name === rect_name;
+    });
+
+    let updatedRect = null;
+    if (actionType === 'LOCATION')
+        updatedRect = update(state.rectangles[rect_index], {x: {$set: newX}, y: {$set: newY}});
+    else
+        updatedRect = update(state.rectangles[rect_index], {scaleX: {$set: newX}, scaleY: {$set: newY}});
+
+    //Return a new state
+    return update(state.rectangles, {
+        $splice: [[rect_index, 1, updatedRect]]
+    });
+};
 
 export default reducer;
