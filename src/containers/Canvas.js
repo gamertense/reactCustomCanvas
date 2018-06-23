@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Rect } from "react-konva";
 import { connect } from 'react-redux';
 
 import ColoredRect from './ColoredRect'
@@ -11,8 +10,7 @@ class Canvas extends Component {
     render() {
         return (
             <ColoredRect name='rect1' color='red'
-                x={this.props.rectangles[0].x} y={this.props.rectangles[0].y}
-                onDragEnd={this.props.updateLocation} />
+                x={this.props.rectangles[0].x} y={this.props.rectangles[0].y} />
         );
     }
 }
@@ -23,10 +21,4 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        updateLocation: (e) => dispatch({ 'type': 'LOCATION', 'event': e })
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Canvas);
+export default connect(mapStateToProps)(Canvas);

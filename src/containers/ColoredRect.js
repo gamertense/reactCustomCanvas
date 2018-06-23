@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Rect } from "react-konva";
+import { connect } from 'react-redux';
 
 class ColoredRect extends Component {
   state = {
@@ -27,7 +28,7 @@ class ColoredRect extends Component {
         width={50}
         height={50}
         fill={this.props.color}
-        onDragend={this.props.onDragEnd}
+        onDragEnd={this.props.updateLocation}
         onTransform={this.handleTransform}
         draggable
       />
@@ -35,4 +36,10 @@ class ColoredRect extends Component {
   }
 }
 
-export default ColoredRect;
+const mapDispatchToProps = dispatch => {
+  return {
+      updateLocation: (e) => dispatch({ 'type': 'LOCATION', 'event': e })
+  }
+}
+
+export default connect(null, mapDispatchToProps)(ColoredRect);
