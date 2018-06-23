@@ -8,12 +8,11 @@ const initialState = {
             name: 'rect2', color: 'green',
             x: 20, y: 20
         }
-    ],
-    selected: 'rect1'
+    ]
 };
 
 const reducer = (state = initialState, action) => {
-    console.log(state);
+    // console.log(state);
     let rect_name = null;
     switch (action.type) {
         case 'LOCATION':
@@ -29,12 +28,6 @@ const reducer = (state = initialState, action) => {
             const scale_y = action.event.target.attrs.scaleY;
             return {
                 rectangles: updateState(state, rect_name, action.type, scale_x, scale_y)
-            };
-        case 'SELECTED_RECT':
-            rect_name = action.event.target.attrs.name;
-            return {
-                ...state,
-                selected: rect_name
             };
         default:
             return state;

@@ -1,14 +1,22 @@
 import React, {Component} from "react";
 import {connect} from 'react-redux';
 import {Stage, Layer} from "react-konva";
+import {Transformer} from "react-konva";
 
 import ColoredRect from './ColoredRect';
-import Transform from './Transform';
 
 class Canvas extends Component {
+    onClickRect = (e) => {
+        const stage = this.transformer.getStage();
+        const rectangle = stage.findOne('.' + e.target.attrs.name);
+        this.transformer.attachTo(rectangle);
+        this.transformer.getLayer().batchDraw();
+    };
+
     render() {
         const listRect = this.props.rectangles.map(rectangle =>
-            <ColoredRect name={rectangle.name} color={rectangle.color} x={rectangle.x} y={rectangle.y}/>);
+            <ColoredRect key={rectangle.name} name={rectangle.name} color={rectangle.color} x={rectangle.x}
+                         y={rectangle.y} onSelect={this.onClickRect}/>);
         return (
             <Stage width={window.innerWidth} height={window.innerHeight}>
                 <Layer>
@@ -17,7 +25,11 @@ class Canvas extends Component {
                     {/*<ColoredRect name='rect2' color='green'*/}
                     {/*x={this.props.rectangles[1].x} y={this.props.rectangles[1].y}/>*/}
                     {listRect}
-                    <Transform/>
+                    <Transformer
+                        ref={node => {
+                            this.transformer = node;
+                        }}
+                    />
                 </Layer>
             </Stage>
         );
@@ -26,7 +38,8 @@ class Canvas extends Component {
 
 const mapStateToProps = state => {
     return {
-        rectangles: state.rectangles
+        rectangles: state.rectangles,
+        selected_rect: state.selected
     }
 };
 

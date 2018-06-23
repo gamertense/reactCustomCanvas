@@ -26,7 +26,6 @@ const mapDispatchToProps = dispatch => {
     return {
         updateLocation: (e) => dispatch({'type': 'LOCATION', 'event': e}),
         updateScale: (e) => dispatch({'type': 'TRANSFORM', 'event': e}),
-        updateSelected: (e) => dispatch({'type': 'SELECTED_RECT', 'event': e})
     }
 };
 
