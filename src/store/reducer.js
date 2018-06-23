@@ -1,3 +1,5 @@
+const update = require('immutability-helper');
+
 const initialState = {
     rectangles: [
         {
@@ -15,6 +17,11 @@ const reducer = (state = initialState, action) => {
     // console.log(state);
     let rect_name = null;
     switch (action.type) {
+        case 'ADD_RECT':
+            const new_rect = {name: 'rect3', color: action.color, x: 20, y: 20};
+            return {
+                rectangles: update(state.rectangles, {$push: [new_rect]})
+            };
         case 'LOCATION':
             rect_name = action.event.target.attrs.name;
             const new_x = action.event.target.attrs.x;
@@ -37,7 +44,6 @@ const reducer = (state = initialState, action) => {
 
 const updateState = (state, rect_name, actionType, newX, newY) => {
     //Update x and y coordinate of selected rectangle
-    const update = require('immutability-helper');
     const rect_index = state.rectangles.findIndex(function (rect) {
         return rect.name === rect_name;
     });
