@@ -6,13 +6,13 @@
     "gestalt": "^0.74.0",
     "immutability-helper": "^2.7.1",
     "konva": "^2.1.6",
+    "npm": "^6.1.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-konva": "^1.7.7",
     "react-redux": "^5.0.7",
     "react-scripts": "1.1.4",
-    "redux": "^4.0.0",
-    "sqlite-json": "^1.1.0"
+    "redux": "^4.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

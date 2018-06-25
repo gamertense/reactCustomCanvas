@@ -6,16 +6,18 @@ import 'gestalt/dist/gestalt.css';
 
 import Canvas from './components/Canvas'
 import data from './store/btnLookup.json';
+import Tool from './containers/Tool';
 
 class App extends Component {
     render() {
-        const btnList = data.rectangles.map(rectangle => <Button inline color={rectangle.color} text={rectangle.name}
+        const btnList = data.rectangles.map(rectangle => <Button inline text={rectangle.name}
                                                                  onClick={() => this.props.addRect(rectangle.name, rectangle.color)}/>);
         return (
             <Box display="flex" direction="row" paddingY={2}>
                 <Column span={3}>
                     <Box color="lightGray" padding={1}>
                         <Box color="white" paddingY={2}>
+                            <Tool/>
                             {btnList}
                         </Box>
                     </Box>

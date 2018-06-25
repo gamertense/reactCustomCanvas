@@ -11,9 +11,9 @@ const reducer = (state = initialState, action) => {
         case 'ADD_RECT':
             console.log(state);
             const objid = Math.random().toString(36).substr(2, 9);
-            const new_rect = { objid: objid, color: action.color, x: 20, y: 20 };
+            const new_rect = {objid: objid, color: action.color, x: 20, y: 20};
             return {
-                rectangles: update(state.rectangles, { $push: [new_rect] })
+                rectangles: update(state.rectangles, {$push: [new_rect]})
             };
         case 'LOCATION':
             rect_name = action.event.target.attrs.name;
@@ -29,6 +29,8 @@ const reducer = (state = initialState, action) => {
             return {
                 rectangles: updateState(state, rect_name, action.type, scale_x, scale_y)
             };
+        case 'CLEAR_CANVAS':
+            return {rectangles: []};
         default:
             return state;
 
@@ -45,10 +47,10 @@ const updateState = (state, rect_name, actionType, newX, newY) => {
 
     switch (actionType) {
         case 'LOCATION':
-            updatedRect = update(state.rectangles[rect_index], { x: { $set: newX }, y: { $set: newY } });
+            updatedRect = update(state.rectangles[rect_index], {x: {$set: newX}, y: {$set: newY}});
             break;
         default:
-            updatedRect = update(state.rectangles[rect_index], { scaleX: { $set: newX }, scaleY: { $set: newY } });
+            updatedRect = update(state.rectangles[rect_index], {scaleX: {$set: newX}, scaleY: {$set: newY}});
     }
 
     //Return a new state
