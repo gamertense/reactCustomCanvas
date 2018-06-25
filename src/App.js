@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {Box, Column, Button} from 'gestalt';
 import 'gestalt/dist/gestalt.css';
 
-import Canvas from './containers/Canvas'
+import Canvas from './components/Canvas'
 import data from './store/btnLookup.json';
 
 class App extends Component {

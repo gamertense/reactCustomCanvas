@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {Stage, Layer} from "react-konva";
 import {Transformer} from "react-konva";
 
-import ColoredRect from './ColoredRect';
+import ColoredRect from '../containers/ColoredRect';
 
 class Canvas extends Component {
     onClickRect = (e) => {
