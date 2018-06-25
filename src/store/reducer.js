@@ -10,7 +10,8 @@ const reducer = (state = initialState, action) => {
     switch (action.type) {
         case 'ADD_RECT':
             console.log(state);
-            const new_rect = { name: action.name, color: action.color, x: 20, y: 20 };
+            const objid = Math.random().toString(36).substr(2, 9);
+            const new_rect = { objid: objid, color: action.color, x: 20, y: 20 };
             return {
                 rectangles: update(state.rectangles, { $push: [new_rect] })
             };
@@ -37,7 +38,7 @@ const reducer = (state = initialState, action) => {
 const updateState = (state, rect_name, actionType, newX, newY) => {
     //Update x and y coordinate of selected rectangle
     const rect_index = state.rectangles.findIndex(function (rect) {
-        return rect.name === rect_name;
+        return rect.objid === rect_name;
     });
 
     let updatedRect = null;

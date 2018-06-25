@@ -7,7 +7,7 @@ class ColoredRect extends Component {
         // console.log(this.props.name );
         return (
             <Rect
-                name={this.props.name}
+                name={this.props.objectid}
                 x={this.props.x}
                 y={this.props.y}
                 width={50}

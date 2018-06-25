@@ -15,7 +15,7 @@ class Canvas extends Component {
 
     render() {
         const listRect = this.props.rectangles.map(rectangle =>
-            <ColoredRect key={rectangle.name} name={rectangle.name} color={rectangle.color} x={rectangle.x}
+            <ColoredRect key={rectangle.objid} objectid={rectangle.objid} color={rectangle.color} x={rectangle.x}
                          y={rectangle.y} onSelect={this.onClickRect}/>);
         return (
             <Stage width={window.innerWidth} height={window.innerHeight}>
