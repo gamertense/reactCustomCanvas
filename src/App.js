@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {connect} from 'react-redux';
 
-import {Box, Column, Button} from 'gestalt';
+import {Box, Column, Button, Divider} from 'gestalt';
 import 'gestalt/dist/gestalt.css';
 
 import Canvas from './components/Canvas'
@@ -17,7 +17,7 @@ class App extends Component {
                 <Column span={3}>
                     <Box color="lightGray" padding={1}>
                         <Box color="white" paddingY={2}>
-                            <Tool/>
+
                             {btnList}
                         </Box>
                     </Box>
@@ -26,6 +26,8 @@ class App extends Component {
                     <Box color="lightGray" padding={1}>
                         <Box color="white" paddingY={2}>
                             <Canvas/>
+                            <Divider/>
+                            <Tool/>
                         </Box>
                     </Box>
                 </Column>

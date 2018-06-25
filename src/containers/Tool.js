@@ -1,38 +1,44 @@
 import React, {Component} from "react";
 import {connect} from 'react-redux';
 
-import {Container, IconButton} from 'gestalt';
+import {Box, Column, IconButton} from 'gestalt';
 
 class Tools extends Component {
     render() {
         return (
-            <Container>
-                <IconButton
-                    accessibilityLabel="Love"
-                    bgColor="lightGray"
-                    icon="arrow-back"
-                    iconColor="blue"
-                    onClick={() => {
-                        console.log('❤️')
-                    }}
-                />
-                <IconButton
-                    accessibilityLabel="Love"
-                    bgColor="lightGray"
-                    icon="arrow-forward"
-                    iconColor="blue"
-                    onClick={() => {
-                        console.log('❤️')
-                    }}
-                />
-                <IconButton
-                    accessibilityLabel="Love"
-                    bgColor="lightGray"
-                    icon="cancel"
-                    iconColor="blue"
-                    onClick={this.props.clearCanvas}
-                />
-            </Container>
+            <Box color="lightGray" shape="rounded" padding={3} display="flex" direction="row" alignItems="center">
+                <Box paddingX={2}>
+                    <IconButton
+                        accessibilityLabel="Love"
+                        bgColor="white"
+                        icon="arrow-back"
+                        iconColor="blue"
+                        onClick={() => {
+                            console.log('❤️')
+                        }}
+                    />
+                </Box>
+                <Box paddingX={2}>
+                    <IconButton
+                        accessibilityLabel="Love"
+                        bgColor="white"
+                        icon="arrow-forward"
+                        iconColor="blue"
+                        onClick={() => {
+                            console.log('❤️')
+                        }}
+                    />
+                </Box>
+                <Box paddingX={2}>
+                    <IconButton
+                        accessibilityLabel="Love"
+                        bgColor="white"
+                        icon="cancel"
+                        iconColor="blue"
+                        onClick={this.props.clearCanvas}
+                    />
+                </Box>
+            </Box>
         );
     }
 }

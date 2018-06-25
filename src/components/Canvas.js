@@ -18,7 +18,7 @@ class Canvas extends Component {
             <ColoredRect key={rectangle.objid} objectid={rectangle.objid} color={rectangle.color} x={rectangle.x}
                          y={rectangle.y} onSelect={this.onClickRect}/>);
         return (
-            <Stage width={window.innerWidth} height={window.innerHeight}>
+            <Stage width={800} height={500}>
                 <Layer>
                     {listRect}
                     <Transformer
