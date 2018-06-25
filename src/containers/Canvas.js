@@ -20,10 +20,6 @@ class Canvas extends Component {
         return (
             <Stage width={window.innerWidth} height={window.innerHeight}>
                 <Layer>
-                    {/*<ColoredRect name='rect1' color='red'*/}
-                    {/*x={this.props.rectangles[0].x} y={this.props.rectangles[0].y}/>*/}
-                    {/*<ColoredRect name='rect2' color='green'*/}
-                    {/*x={this.props.rectangles[1].x} y={this.props.rectangles[1].y}/>*/}
                     {listRect}
                     <Transformer
                         ref={node => {
