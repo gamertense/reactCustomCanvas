@@ -1,16 +1,7 @@
 const update = require('immutability-helper');
 
 const initialState = {
-    rectangles: [
-        {
-            name: 'rect1', color: 'red',
-            x: 50, y: 50
-        },
-        {
-            name: 'rect2', color: 'green',
-            x: 20, y: 20
-        }
-    ]
+    rectangles: []
 };
 
 const reducer = (state = initialState, action) => {
@@ -18,9 +9,10 @@ const reducer = (state = initialState, action) => {
     let rect_name = null;
     switch (action.type) {
         case 'ADD_RECT':
-            const new_rect = {name: 'rect3', color: action.color, x: 20, y: 20};
+            console.log(state);
+            const new_rect = { name: action.name, color: action.color, x: 20, y: 20 };
             return {
-                rectangles: update(state.rectangles, {$push: [new_rect]})
+                rectangles: update(state.rectangles, { $push: [new_rect] })
             };
         case 'LOCATION':
             rect_name = action.event.target.attrs.name;
@@ -52,10 +44,10 @@ const updateState = (state, rect_name, actionType, newX, newY) => {
 
     switch (actionType) {
         case 'LOCATION':
-            updatedRect = update(state.rectangles[rect_index], {x: {$set: newX}, y: {$set: newY}});
+            updatedRect = update(state.rectangles[rect_index], { x: { $set: newX }, y: { $set: newY } });
             break;
         default:
-            updatedRect = update(state.rectangles[rect_index], {scaleX: {$set: newX}, scaleY: {$set: newY}});
+            updatedRect = update(state.rectangles[rect_index], { scaleX: { $set: newX }, scaleY: { $set: newY } });
     }
 
     //Return a new state

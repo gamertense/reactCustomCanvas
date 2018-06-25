@@ -1,14 +1,16 @@
-import React, {Component} from "react";
-import {connect} from 'react-redux';
+import React, { Component } from "react";
+import { connect } from 'react-redux';
 
 import Canvas from './containers/Canvas'
+import data from './store/btnLookup.json';
 
 class App extends Component {
     render() {
         return (
             <div>
-                <button onClick={() => this.props.addRect('blue')}>Blue</button>
-                <Canvas/>
+                {data.rectangles.map(rectangle => <button onClick={() => this.props.addRect(rectangle.name,rectangle.color)}>{rectangle.name}</button>)}
+                {/* <button onClick={() => this.props.addRect('blue')}>Blue</button> */}
+                <Canvas />
             </div>
         );
     }
@@ -16,7 +18,7 @@ class App extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addRect: (color) => dispatch({'type': 'ADD_RECT', 'color': color})
+        addRect: (name, color) => dispatch({ 'type': 'ADD_RECT', 'name': name, 'color': color })
     }
 };
 

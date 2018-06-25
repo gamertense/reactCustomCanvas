@@ -10,7 +10,8 @@
     "react-konva": "^1.7.7",
     "react-redux": "^5.0.7",
     "react-scripts": "1.1.4",
-    "redux": "^4.0.0"
+    "redux": "^4.0.0",
+    "sqlite-json": "^1.1.0"
   },
   "scripts": {
     "start": "react-scripts start",

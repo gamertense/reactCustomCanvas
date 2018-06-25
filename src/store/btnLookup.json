@@ -1,0 +1,19 @@
+{
+    "rectangles": [
+        {
+            "id": 1,
+            "name": "rect1",
+            "color": "red"
+        },
+        {
+            "id": 2,
+            "name": "rect2",
+            "color": "green"
+        },
+        {
+            "id": 3,
+            "name": "rect3",
+            "color": "blue"
+        }
+    ]
+}
