@@ -1,8 +1,9 @@
 import React, {Component} from "react";
 import {connect} from 'react-redux';
-import {Button} from 'reactstrap';
+import {Button, Col, Row} from 'reactstrap';
 
-import data from '../store/btnLookup.json';
+import data from '../../store/btnLookup.json';
+import './Sidebar.css';
 
 class Sidebar extends Component {
     state = {
@@ -13,15 +14,16 @@ class Sidebar extends Component {
         const txtIn = this.state.textInput.toLowerCase();
         const btnName = button.name.toLowerCase();
         if (btnName.startsWith(txtIn))
-            return <Button onClick={() => this.props.addRect(button.name, button.color)}>{button.name}</Button>
+            return <Col xs="4" className="Button-Col"><Button
+                onClick={() => this.props.addRect(button.name, button.color)}>{button.name}</Button></Col>
     };
 
     render() {
         const btnList = data.rectangles.map(rectangle => this.showButton(rectangle));
         return (
-            <div>
+            <Row>
                 {btnList}
-            </div>
+            </Row>
         );
     }
 }
