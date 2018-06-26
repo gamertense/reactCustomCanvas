@@ -1,12 +1,12 @@
 import React, {Component} from "react";
 import {connect} from 'react-redux';
-import {Stage, Layer,Transformer} from "react-konva";
+import {Stage, Layer, Transformer} from "react-konva";
 
 import ColoredRect from '../containers/ColoredRect';
 
 
 class Canvas extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.tr = <Transformer
             ref={node => {
@@ -27,6 +27,8 @@ class Canvas extends Component {
                 this.transformer.attachTo(rectangle);
                 this.transformer.getLayer().batchDraw();
                 break;
+            default:
+                break;
         }
     };
 
@@ -34,18 +36,16 @@ class Canvas extends Component {
         const listRect = this.props.rectangles.map(rectangle =>
             <ColoredRect key={rectangle.objid} objectid={rectangle.objid} color={rectangle.color} x={rectangle.x}
                          y={rectangle.y}/>);
+        const style = {background: 'white'};
         return (
-            <div>
-                <Stage width={800} height={500} onClick={this.onClickHandler}>
-                    <Layer ref={node => {
-                        this.layer = node;
-                    }}>
-                        {listRect}
-                        {this.tr}
-                    </Layer>
-                </Stage>
-                {/*<Tools onClearHandler={} />*/}
-            </div>
+            <Stage width={700} height={400} onClick={this.onClickHandler} style={style}>
+                <Layer ref={node => {
+                    this.layer = node;
+                }}>
+                    {listRect}
+                    {this.tr}
+                </Layer>
+            </Stage>
         );
     }
 }
