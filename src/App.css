@@ -1,8 +1,9 @@
 .Sidebar {
-    background: lightgray;
     margin-top: 10px
 }
 
 .Canvas {
-    padding: 30px;
+    margin-top: 10px;
+    padding: 10px;
+    background: lightgray;
 }
