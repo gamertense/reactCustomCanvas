@@ -1,44 +1,204 @@
 {
     "rectangles": [
         {
-            "name": "Bitter",
-            "color": "#F9AB7F"
+            "name": "Energy",
+            "color": "#40365A"
         },
         {
-            "name": "Economics",
-            "color": "#75AF86"
+            "name": "Bathroom",
+            "color": "#2697D3"
         },
         {
-            "name": "Procedure",
-            "color": "#1BED5B"
+            "name": "Importance",
+            "color": "#E9C1BF"
         },
         {
-            "name": "Star",
-            "color": "#06228B"
+            "name": "Passage",
+            "color": "#095BDF"
         },
         {
-            "name": "Development",
-            "color": "#BF7285"
+            "name": "Investment",
+            "color": "#04165A"
         },
         {
-            "name": "Unit",
-            "color": "#080843"
+            "name": "Television",
+            "color": "#012A07"
         },
         {
-            "name": "Read",
-            "color": "#B0A7D9"
+            "name": "Client",
+            "color": "#E97576"
         },
         {
-            "name": "Photo",
-            "color": "#B100CB"
+            "name": "Awareness",
+            "color": "#BC04AF"
         },
         {
-            "name": "Island",
-            "color": "#61AE34"
+            "name": "Professor",
+            "color": "#E765A7"
         },
         {
-            "name": "Son",
-            "color": "#F21A6E"
+            "name": "Position",
+            "color": "#521175"
+        },
+        {
+            "name": "Ear",
+            "color": "#2D76D5"
+        },
+        {
+            "name": "Direction",
+            "color": "#FB70F6"
+        },
+        {
+            "name": "Kick",
+            "color": "#F8042F"
+        },
+        {
+            "name": "Mate",
+            "color": "#AECF3C"
+        },
+        {
+            "name": "Post",
+            "color": "#4BD6BF"
+        },
+        {
+            "name": "Limit",
+            "color": "#76179A"
+        },
+        {
+            "name": "Actor",
+            "color": "#287BB4"
+        },
+        {
+            "name": "Secretary",
+            "color": "#9D3727"
+        },
+        {
+            "name": "Return",
+            "color": "#4210FF"
+        },
+        {
+            "name": "Master",
+            "color": "#C15A64"
+        },
+        {
+            "name": "Meeting",
+            "color": "#61CF04"
+        },
+        {
+            "name": "Friend",
+            "color": "#B4B3EA"
+        },
+        {
+            "name": "Key",
+            "color": "#19E2E9"
+        },
+        {
+            "name": "Rip",
+            "color": "#F554FB"
+        },
+        {
+            "name": "Bone",
+            "color": "#B4720F"
+        },
+        {
+            "name": "Save",
+            "color": "#E96468"
+        },
+        {
+            "name": "Age",
+            "color": "#7AE3F4"
+        },
+        {
+            "name": "Pair",
+            "color": "#B73055"
+        },
+        {
+            "name": "Low",
+            "color": "#679183"
+        },
+        {
+            "name": "Spell",
+            "color": "#AEA025"
+        },
+        {
+            "name": "Base",
+            "color": "#79C8D4"
+        },
+        {
+            "name": "Toe",
+            "color": "#EBC86D"
+        },
+        {
+            "name": "Fall",
+            "color": "#3F0396"
+        },
+        {
+            "name": "Excuse",
+            "color": "#19615C"
+        },
+        {
+            "name": "Sector",
+            "color": "#342159"
+        },
+        {
+            "name": "Presentation",
+            "color": "#7CB199"
+        },
+        {
+            "name": "Wonder",
+            "color": "#A18FDA"
+        },
+        {
+            "name": "Roof",
+            "color": "#D4203A"
+        },
+        {
+            "name": "Classroom",
+            "color": "#8FED23"
+        },
+        {
+            "name": "Counter",
+            "color": "#A48CC7"
+        },
+        {
+            "name": "Reason",
+            "color": "#B98D6C"
+        },
+        {
+            "name": "Technology",
+            "color": "#8268F7"
+        },
+        {
+            "name": "Introduction",
+            "color": "#C4FA4A"
+        },
+        {
+            "name": "Gene",
+            "color": "#90124D"
+        },
+        {
+            "name": "Concentrate",
+            "color": "#FF1F5A"
+        },
+        {
+            "name": "Ordinary",
+            "color": "#DF0D69"
+        },
+        {
+            "name": "Grab",
+            "color": "#4605D7"
+        },
+        {
+            "name": "Mortgage",
+            "color": "#C56787"
+        },
+        {
+            "name": "Tap",
+            "color": "#B028BF"
+        },
+        {
+            "name": "Hospital",
+            "color": "#650691"
         }
     ]
 }
