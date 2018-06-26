@@ -1,8 +1,6 @@
 import React, {Component} from "react";
 import {connect} from 'react-redux';
-
-import {Box, SearchField, Button} from 'gestalt';
-import 'gestalt/dist/gestalt.css';
+import {Button} from 'reactstrap';
 
 import data from '../store/btnLookup.json';
 
@@ -15,30 +13,15 @@ class Sidebar extends Component {
         const txtIn = this.state.textInput.toLowerCase();
         const btnName = button.name.toLowerCase();
         if (btnName.startsWith(txtIn))
-            return <Box paddingX={2}><Button text={button.name}
-                                             onClick={() => this.props.addRect(button.name, button.color)}/></Box>
+            return <Button onClick={() => this.props.addRect(button.name, button.color)}>{button.name}</Button>
     };
 
     render() {
         const btnList = data.rectangles.map(rectangle => this.showButton(rectangle));
         return (
-            <Box>
-                <Box color="white" shape="rounded" padding={3} display="flex" direction="row" alignItems="center">
-                    <Box flex="grow" paddingX={2}>
-                        <SearchField
-                            accessibilityLabel="Demo Search Field"
-                            id="searchField"
-                            onChange={({value}) => this.setState({textInput: value})}
-                            placeholder="Search"
-                            value={this.state.textInput}
-                        />
-                    </Box>
-                </Box>
-                <Box color="white" shape="rounded" padding={3} display="flex" direction="row"
-                     alignItems="center">
-                    {btnList}
-                </Box>
-            </Box>
+            <div>
+                {btnList}
+            </div>
         );
     }
 }

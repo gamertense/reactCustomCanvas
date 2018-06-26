@@ -1,10 +1,8 @@
 import React, {Component} from "react";
 import {connect} from 'react-redux';
-import {Stage, Layer, Divider} from "react-konva";
-import {Transformer} from "react-konva";
+import {Stage, Layer,Transformer} from "react-konva";
 
 import ColoredRect from '../containers/ColoredRect';
-import Tools from "../containers/Tools";
 
 
 class Canvas extends Component {
@@ -18,7 +16,7 @@ class Canvas extends Component {
     }
 
     onClickHandler = (e) => {
-        console.log(this.transformer);
+        // console.log(this.transformer);
         // console.log(e.target);
         switch (e.target.nodeType) {
             case 'Stage':
