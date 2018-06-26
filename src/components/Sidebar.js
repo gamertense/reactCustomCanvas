@@ -11,12 +11,12 @@ class Sidebar extends Component {
         textInput: ''
     };
 
-    showButton = rectangle => {
-        if (this.state.textInput === '')
-            return;
-        else if (rectangle.name.startsWith(this.state.textInput))
-            return <Box paddingX={2}><Button inline text={rectangle.name}
-                                             onClick={() => this.props.addRect(rectangle.name, rectangle.color)}/></Box>
+    showButton = button => {
+        const txtIn = this.state.textInput.toLowerCase();
+        const btnName = button.name.toLowerCase();
+        if (btnName.startsWith(txtIn))
+            return <Box paddingX={2}><Button text={button.name}
+                                             onClick={() => this.props.addRect(button.name, button.color)}/></Box>
     };
 
     render() {
