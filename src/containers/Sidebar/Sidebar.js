@@ -21,11 +21,12 @@ class Sidebar extends Component {
             return;
 
         const txtIn = this.state.textInput.toLowerCase();
+        const btnid = Math.random().toString(36).substr(2, 9);
         const btnName = button.name.toLowerCase();
         const style = {background: button.color};
         if (btnName.startsWith(txtIn))
-            return <Col xs="6" className="Button-Col"><Button style={style}
-                                                              onClick={() => this.props.addRect(button.name, button.color)}>{button.name}</Button></Col>
+            return <Col xs="6" className="Button-Col" key={btnid}><Button style={style}
+                                                                          onClick={() => this.props.addRect(button.name, button.color)}>{button.name}</Button></Col>
     };
 
     render() {
