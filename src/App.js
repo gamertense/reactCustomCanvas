@@ -1,12 +1,11 @@
 import React, {Component} from "react";
 import {connect} from 'react-redux';
 
-import {Box, Column, Button, Divider} from 'gestalt';
+import {Box, Column, Button} from 'gestalt';
 import 'gestalt/dist/gestalt.css';
 
 import Canvas from './components/Canvas'
 import data from './store/btnLookup.json';
-import Tool from './containers/Tool';
 
 class App extends Component {
     render() {
@@ -26,8 +25,6 @@ class App extends Component {
                     <Box color="lightGray" padding={1}>
                         <Box color="white" paddingY={2}>
                             <Canvas/>
-                            <Divider/>
-                            <Tool/>
                         </Box>
                     </Box>
                 </Column>

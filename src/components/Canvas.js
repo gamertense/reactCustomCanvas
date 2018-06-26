@@ -8,9 +8,18 @@ import Tools from "../containers/Tools";
 
 
 class Canvas extends Component {
+    constructor(props){
+        super(props);
+        this.tr = <Transformer
+            ref={node => {
+                this.transformer = node;
+            }}
+        />
+    }
+
     onClickHandler = (e) => {
-        console.log('onClearHandler');
-        console.log(e.target);
+        console.log(this.transformer);
+        // console.log(e.target);
         switch (e.target.nodeType) {
             case 'Stage':
                 break;
@@ -26,17 +35,15 @@ class Canvas extends Component {
     render() {
         const listRect = this.props.rectangles.map(rectangle =>
             <ColoredRect key={rectangle.objid} objectid={rectangle.objid} color={rectangle.color} x={rectangle.x}
-                         y={rectangle.y} />);
+                         y={rectangle.y}/>);
         return (
             <div>
                 <Stage width={800} height={500} onClick={this.onClickHandler}>
-                    <Layer>
+                    <Layer ref={node => {
+                        this.layer = node;
+                    }}>
                         {listRect}
-                        <Transformer
-                            ref={node => {
-                                this.transformer = node;
-                            }}
-                        />
+                        {this.tr}
                     </Layer>
                 </Stage>
                 {/*<Tools onClearHandler={} />*/}

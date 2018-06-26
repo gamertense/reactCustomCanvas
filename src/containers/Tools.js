@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {connect} from 'react-redux';
 
-import {Box, Column, IconButton} from 'gestalt';
+import {Box, IconButton} from 'gestalt';
 
 class Tools extends Component {
     render() {
@@ -35,7 +35,7 @@ class Tools extends Component {
                         bgColor="white"
                         icon="cancel"
                         iconColor="blue"
-                        onClick={this.props.clearCanvas}
+                        onClick={this.props.onClearHandler}
                     />
                 </Box>
             </Box>
@@ -43,10 +43,4 @@ class Tools extends Component {
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        clearCanvas: () => dispatch({'type': 'CLEAR_CANVAS'})
-    }
-};
-
-export default connect(null, mapDispatchToProps)(Tools);
+export default Tools;
