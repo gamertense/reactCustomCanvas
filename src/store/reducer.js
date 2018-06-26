@@ -11,7 +11,7 @@ const reducer = (state = initialState, action) => {
         case 'ADD_RECT':
             console.log(state);
             const objid = Math.random().toString(36).substr(2, 9);
-            const new_rect = {objid: objid, color: action.color, x: 20, y: 20};
+            const new_rect = {objid: objid, color: action.color, x: Math.random() * 100, y: Math.random() * 100};
             return {
                 rectangles: update(state.rectangles, {$push: [new_rect]})
             };
