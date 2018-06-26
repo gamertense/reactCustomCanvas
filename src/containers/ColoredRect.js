@@ -13,7 +13,6 @@ class ColoredRect extends Component {
                 width={50}
                 height={50}
                 fill={this.props.color}
-                onClick={this.props.onSelect}
                 onDragEnd={this.props.updateLocation}
                 onTransformEnd={this.props.updateScale}
                 draggable
