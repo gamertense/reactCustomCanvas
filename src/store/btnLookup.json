@@ -1,16 +1,44 @@
 {
     "rectangles": [
         {
-            "name": "rect1",
-            "color": "red"
+            "name": "Bitter",
+            "color": "#F9AB7F"
         },
         {
-            "name": "rect2",
-            "color": "green"
+            "name": "Economics",
+            "color": "#75AF86"
         },
         {
-            "name": "rect3",
-            "color": "blue"
+            "name": "Procedure",
+            "color": "#1BED5B"
+        },
+        {
+            "name": "Star",
+            "color": "#06228B"
+        },
+        {
+            "name": "Development",
+            "color": "#BF7285"
+        },
+        {
+            "name": "Unit",
+            "color": "#080843"
+        },
+        {
+            "name": "Read",
+            "color": "#B0A7D9"
+        },
+        {
+            "name": "Photo",
+            "color": "#B100CB"
+        },
+        {
+            "name": "Island",
+            "color": "#61AE34"
+        },
+        {
+            "name": "Son",
+            "color": "#F21A6E"
         }
     ]
 }
