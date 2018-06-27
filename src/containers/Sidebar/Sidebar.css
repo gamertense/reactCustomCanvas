@@ -1,3 +1,9 @@
 .Button-Col {
     margin-top: 10px
 }
+
+.Sidebar-container {
+    background: #F2F2F2;
+    margin-top: 10px;
+    padding: 10px;
+}
