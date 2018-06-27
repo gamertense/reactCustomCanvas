@@ -9,7 +9,7 @@ import Tools from './containers/Tools'
 class App extends Component {
     render() {
         return (
-            <Container>
+            <Container className="App">
                 <Row>
                     <Col xs="4" className="Sidebar">
                         <Sidebar/>
