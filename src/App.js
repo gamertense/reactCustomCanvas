@@ -4,6 +4,7 @@ import {Container, Row, Col} from 'reactstrap';
 import './App.css';
 import Canvas from './components/Canvas'
 import Sidebar from './containers/Sidebar/Sidebar';
+import Tools from './containers/Tools'
 
 class App extends Component {
     render() {
@@ -15,6 +16,7 @@ class App extends Component {
                     </Col>
                     <Col xs="8" className="Canvas">
                         <Canvas/>
+                        <Tools/>
                     </Col>
                 </Row>
             </Container>

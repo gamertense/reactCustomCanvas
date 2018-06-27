@@ -1,7 +1,6 @@
 import React, {Component} from "react"
 import {connect} from 'react-redux'
-import {Button, Col, Row, Container, InputGroup, InputGroupAddon, Input} from 'reactstrap'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {Button, Col, Row, Container, Input} from 'reactstrap'
 
 import data from '../../store/btnLookup.json'
 import './Sidebar.css'
@@ -39,9 +38,7 @@ class Sidebar extends Component {
         const btnList = data.rectangles.map(rectangle => this.showButton(rectangle));
         return (
             <Container className="Sidebar-container">
-                <InputGroup>
-                    <Input placeholder="Search" onChange={this.handleChange} value={this.state.textInput}/>
-                </InputGroup>
+                <Input placeholder="Search" onChange={this.handleChange} value={this.state.textInput}/>
                 <Row>
                     {btnList}
                 </Row>

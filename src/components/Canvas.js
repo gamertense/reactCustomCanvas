@@ -26,6 +26,7 @@ class Canvas extends Component {
                 const rectangle = stage.findOne('.' + e.target.attrs.name);
                 this.transformer.attachTo(rectangle);
                 this.transformer.getLayer().batchDraw();
+                this.props.updateSelected(e.target.attrs.name);
                 break;
             default:
                 break;
@@ -56,4 +57,10 @@ const mapStateToProps = state => {
     }
 };
 
-export default connect(mapStateToProps)(Canvas);
+const mapDispatchToProps = dispatch => {
+    return {
+        updateSelected: (name) => dispatch({'type': 'UPDATE_SELECT', 'name': name})
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Canvas);
