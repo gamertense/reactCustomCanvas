@@ -24,8 +24,9 @@ class Sidebar extends Component {
         const txtIn = this.state.textInput.toLowerCase();
         const btnid = Math.random().toString(36).substr(2, 9);
         const btnName = button.name.toLowerCase();
+        const style = { borderColor: button.color };
         if (btnName.startsWith(txtIn))
-            return <Col xs="12" md="6" className="Button-Col" key={btnid}><Button
+            return <Col xs="12" md="6" className="Button-Col" key={btnid}><Button style={style} outline 
                 onClick={() => this.props.addRect(button.name, button.color)}>{button.name}</Button></Col>
     };
 
