@@ -6,29 +6,21 @@ import ColoredRect from '../containers/ColoredRect';
 
 
 class Canvas extends Component {
-    constructor(props) {
-        super(props);
-        this.tr = <Transformer
-            ref={node => {
-                this.transformer = node;
-            }}
-        />
-    }
-
     onClickHandler = (e) => {
-        // console.log(this.transformer);
-        // console.log(e.target);
+        const stage = this.transformer.getStage();
         switch (e.target.nodeType) {
             case 'Stage':
+                this.props.updateTransform('remove');
+                this.props.updateTransform('add');
                 break;
             case 'Shape':
-                const stage = this.transformer.getStage();
                 const rectangle = stage.findOne('.' + e.target.attrs.name);
                 this.transformer.attachTo(rectangle);
                 this.transformer.getLayer().batchDraw();
                 this.props.updateSelected(e.target.attrs.name);
                 break;
             default:
+                console.log('Unhandled target');
                 break;
         }
     };
@@ -38,13 +30,16 @@ class Canvas extends Component {
             <ColoredRect key={rectangle.objid} objectid={rectangle.objid} color={rectangle.color} x={rectangle.x}
                          y={rectangle.y}/>);
         const style = {background: 'white'};
+
+        console.log(this.props.strf);
         return (
             <Stage width={700} height={400} onClick={this.onClickHandler} style={style}>
-                <Layer ref={node => {
-                    this.layer = node;
-                }}>
+                <Layer>
                     {listRect}
-                    {this.tr}
+                    {this.props.strf ? <Transformer ref={node => {
+                        this.transformer = node;
+                    }}/> : null}
+
                 </Layer>
             </Stage>
         );
@@ -53,13 +48,16 @@ class Canvas extends Component {
 
 const mapStateToProps = state => {
     return {
-        rectangles: state.rectangles
+        rectangles: state.rectangles,
+        sobj: state.selectedObj,
+        strf: state.showTransformer
     }
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        updateSelected: (name) => dispatch({'type': 'UPDATE_SELECT', 'name': name})
+        updateSelected: (name) => dispatch({'type': 'UPDATE_SELECT', 'name': name}),
+        updateTransform: (action) => dispatch({'type': 'UPDATE_TRANSFORM', 'action': action})
     }
 };
 

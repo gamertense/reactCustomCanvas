@@ -2,7 +2,8 @@ const update = require('immutability-helper');
 
 const initialState = {
     rectangles: [],
-    objSelected: ''
+    selectedObj: '',
+    showTransformer: true
 };
 
 const reducer = (state = initialState, action) => {
@@ -13,6 +14,7 @@ const reducer = (state = initialState, action) => {
             const objid = Math.random().toString(36).substr(2, 9);
             const new_rect = {objid: objid, color: action.color, x: Math.random() * 100, y: Math.random() * 100};
             return {
+                ...state,
                 rectangles: update(state.rectangles, {$push: [new_rect]})
             };
         case 'LOCATION':
@@ -20,6 +22,7 @@ const reducer = (state = initialState, action) => {
             const new_x = action.event.target.attrs.x;
             const new_y = action.event.target.attrs.y;
             return {
+                ...state,
                 rectangles: updateState(state, rect_name, action.type, new_x, new_y)
             };
         case 'TRANSFORM':
@@ -27,23 +30,34 @@ const reducer = (state = initialState, action) => {
             const scale_x = action.event.target.attrs.scaleX;
             const scale_y = action.event.target.attrs.scaleY;
             return {
+                ...state,
                 rectangles: updateState(state, rect_name, action.type, scale_x, scale_y)
             };
         case 'UPDATE_SELECT':
             return {
                 ...state,
-                objSelected: action.name
+                selectedObj: action.name
             };
         case 'REMOVE':
-            const rect_index = state.rectangles.findIndex(function (rect) {
-                return rect.objid === state.objSelected;
+            const rect_index = state.rectangles.findIndex(rect => {
+                return rect.objid === state.selectedObj;
             });
-            return update(state, {rectangles: {$splice: [[rect_index, 1]]}});
+            console.log(rect_index);
+            return update(state, {
+                rectangles: {
+                    $splice: [[rect_index, 1]]
+                }
+            });
 
         case 'CLEAR_CANVAS':
-            return {rectangles: []};
-        case 'UNDO':
-            return state;
+            return {...state, rectangles: []};
+        case 'UPDATE_TRANSFORM':
+            switch (action.action) {
+                case 'remove':
+                    return {...state, showTransformer: false};
+                default:
+                    return {...state, showTransformer: true};
+            }
         default:
             return state;
 
