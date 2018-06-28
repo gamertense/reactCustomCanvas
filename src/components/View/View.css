@@ -1,0 +1,13 @@
+.App-container {
+    background: lightgray;
+}
+
+.Sidebar {
+    margin-top: 10px
+}
+
+.Canvas {
+    margin-top: 10px;
+    padding: 10px;
+    background: lightgray;
+}
