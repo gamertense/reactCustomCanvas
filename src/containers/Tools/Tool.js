@@ -11,7 +11,7 @@ class Tool extends Component {
                 <Button className="Button" color="warning" onClick={this.props.remove}><i
                     className="fas fa-eraser"></i> Remove</Button>
                 <Button className="Button" color="danger" onClick={this.props.clearCanvas}><i
-                    className="fas fa-trash-alt"></i> Clear canvas</Button>
+                    className="fas fa-trash-alt"></i> Clear Canvas</Button>
             </div>
         );
     }
