@@ -6,7 +6,6 @@ class Tools extends Component {
         return (
             <div>
                 <button onClick={this.props.remove}>Remove</button>
-                {/*<button onClick={this.props.undo}>Undo</button>*/}
                 <button onClick={this.props.clearCanvas}>Clear</button>
             </div>
         );
@@ -16,7 +15,6 @@ class Tools extends Component {
 const mapDispatchToProps = dispatch => {
     return {
         remove: () => dispatch({'type': 'REMOVE'}),
-        undo: () => dispatch({'type': 'UNDO'}),
         clearCanvas: () => dispatch({'type': 'CLEAR_CANVAS'})
     }
 };
