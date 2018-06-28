@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import {connect} from 'react-redux';
 import {Stage, Layer, Transformer} from "react-konva";
 
-import ColoredRect from '../containers/ColoredRect';
+import ColoredRect from './ColoredRect';
 
 
 class Canvas extends Component {
@@ -30,13 +30,11 @@ class Canvas extends Component {
             <ColoredRect key={rectangle.objid} objectid={rectangle.objid} color={rectangle.color} x={rectangle.x}
                          y={rectangle.y}/>);
         const style = {background: 'white'};
-
-        console.log(this.props.strf);
         return (
             <Stage width={700} height={400} onClick={this.onClickHandler} style={style}>
                 <Layer>
                     {listRect}
-                    {this.props.strf ? <Transformer ref={node => {
+                    {this.props.showTrans ? <Transformer ref={node => {
                         this.transformer = node;
                     }}/> : null}
 
@@ -50,7 +48,7 @@ const mapStateToProps = state => {
     return {
         rectangles: state.rectangles,
         sobj: state.selectedObj,
-        strf: state.showTransformer
+        showTrans: state.showTransformer
     }
 };
 
