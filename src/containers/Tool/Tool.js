@@ -22,6 +22,8 @@ class Tool extends Component {
                     className="fas fa-eraser"></i> Remove</Button>
                 <Button className="Button" color="danger" onClick={() => this.onBtnClick('clear')}><i
                     className="fas fa-trash-alt"></i> Clear Canvas</Button>
+                <Button className="float-right" color="success" onClick={() => this.onBtnClick('clear')}><i
+                    className="fas fa-paper-plane"></i> Submit</Button>
             </div>
         );
     }
