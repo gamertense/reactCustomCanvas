@@ -54,6 +54,7 @@ const reducer = (state = initialState, action) => {
         case 'UPDATE_TRANSFORM':
             switch (action.action) {
                 case 'remove':
+                    console.log('removed');
                     return {...state, showTransformer: false};
                 default:
                     return {...state, showTransformer: true};

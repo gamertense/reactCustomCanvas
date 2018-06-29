@@ -4,7 +4,7 @@ import {Container, Row, Col} from 'reactstrap';
 import './View.css';
 import Canvas from '../../containers/Canvas'
 import Sidebar from '../../containers/Sidebar/Sidebar';
-import Tools from '../../containers/Tools/Tool'
+import Tools from '../../containers/Tool/Tool'
 
 class App extends Component {
     render() {
