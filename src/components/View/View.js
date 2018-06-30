@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import {Container, Row, Col} from 'reactstrap';
 
 import './View.css';
-import Canvas from '../../containers/Canvas'
+import Canvas from '../../containers/Canvas/Canvas'
 import Sidebar from '../../containers/Sidebar/Sidebar';
 import Tools from '../../containers/Tool/Tool'
 

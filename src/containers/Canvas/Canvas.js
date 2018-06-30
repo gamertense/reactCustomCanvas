@@ -1,9 +1,11 @@
 import React, {Component} from "react";
 import {connect} from 'react-redux';
 import {Stage, Layer, Transformer} from "react-konva";
+import {Button} from 'reactstrap';
+import axios from 'axios';
 
-import ColoredRect from './ColoredRect';
-
+import './Canvas.css';
+import ColoredRect from '../ColoredRect';
 
 class Canvas extends Component {
     onClickHandler = (e) => {
@@ -25,21 +27,38 @@ class Canvas extends Component {
         }
     };
 
+    onSubmitHandler = () => {
+        const imgid = Math.random().toString(36).substr(2, 9);
+        let imgURL = this.stageRef.getStage().toDataURL();
+        imgURL = imgURL.replace('data:image/png;base64,', '');
+
+        axios.post('http://127.0.0.1:5000/post', {imgid: imgid, imgdata: imgURL}).then(function (response) {
+            console.log(response);
+        }).catch(function (error) {
+            console.log(error);
+        });
+    };
+
     render() {
         const listRect = this.props.rectangles.map(rectangle =>
             <ColoredRect key={rectangle.objid} objectid={rectangle.objid} color={rectangle.color} x={rectangle.x}
                          y={rectangle.y}/>);
-        const style = {background: 'white'};
         return (
-            <Stage width={700} height={400} onClick={this.onClickHandler} style={style}>
-                <Layer>
-                    {listRect}
-                    {this.props.showTrans ? <Transformer ref={node => {
-                        this.transformer = node;
-                    }}/> : null}
+            <div>
+                <Stage className="Stage" width={700} height={400} onClick={this.onClickHandler} ref={node => {
+                    this.stageRef = node
+                }}>
+                    <Layer>
+                        {listRect}
+                        {this.props.showTrans ? <Transformer ref={node => {
+                            this.transformer = node;
+                        }}/> : null}
 
-                </Layer>
-            </Stage>
+                    </Layer>
+                </Stage>
+                <Button className="float-right submit-btn" color="success" onClick={this.onSubmitHandler}><i
+                    className="fas fa-paper-plane"></i> Submit</Button>
+            </div>
         );
     }
 }
