@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {BrowserRouter, Route} from 'react-router-dom';
-import View from './components/View/View';
+import View from './components/Layout/Layout';
 
 class App extends Component {
     render() {
