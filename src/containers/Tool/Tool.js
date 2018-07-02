@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { Button } from 'reactstrap';
+import React, {Component} from "react";
+import {connect} from "react-redux";
+import {Button} from 'reactstrap';
 
 
 import './Tool.css';
@@ -23,6 +23,8 @@ class Tool extends Component {
                     className="fas fa-eraser"></i> Remove</Button>
                 <Button className="Button" color="danger" onClick={() => this.onBtnClick('clear')}><i
                     className="fas fa-trash-alt"></i> Clear Canvas</Button>
+                <Button className="float-right " color="success" onClick={this.props.onSubmitHandler}><i
+                    className="fas fa-paper-plane"></i> Submit</Button>
             </div>
         );
     }
@@ -30,9 +32,9 @@ class Tool extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        remove: () => dispatch({ 'type': 'REMOVE' }),
-        clearCanvas: () => dispatch({ 'type': 'CLEAR_CANVAS' }),
-        updateTransform: (action) => dispatch({ 'type': 'UPDATE_TRANSFORM', 'action': action })
+        remove: () => dispatch({'type': 'REMOVE'}),
+        clearCanvas: () => dispatch({'type': 'CLEAR_CANVAS'}),
+        updateTransform: (action) => dispatch({'type': 'UPDATE_TRANSFORM', 'action': action})
     }
 };
 

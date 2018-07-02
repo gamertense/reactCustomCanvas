@@ -1,11 +1,11 @@
 import React, {Component} from "react";
 import {connect} from 'react-redux';
 import {Stage, Layer, Transformer} from "react-konva";
-import {Button} from 'reactstrap';
 import axios from 'axios';
 
-import './Canvas.css';
 import ColoredRect from '../ColoredRect';
+import Tool from '../Tool/Tool';
+import './Canvas.css';
 
 class Canvas extends Component {
     onClickHandler = (e) => {
@@ -32,7 +32,8 @@ class Canvas extends Component {
         let imgURL = this.stageRef.getStage().toDataURL();
         imgURL = imgURL.replace('data:image/png;base64,', '');
 
-        axios.post('http://127.0.0.1:5000/post', {imgid: imgid, imgdata: imgURL}).then(function (response) {
+        console.log(imgid);
+        axios.post('http://127.0.0.1/flask/post', {imgid: imgid, imgdata: imgURL}).then(function (response) {
             console.log(response);
         }).catch(function (error) {
             console.log(error);
@@ -56,8 +57,7 @@ class Canvas extends Component {
 
                     </Layer>
                 </Stage>
-                <Button className="float-right submit-btn" color="success" onClick={this.onSubmitHandler}><i
-                    className="fas fa-paper-plane"></i> Submit</Button>
+                <Tool onSubmitHandler={this.onSubmitHandler}/>
             </div>
         );
     }
