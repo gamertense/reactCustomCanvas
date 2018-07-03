@@ -1,0 +1,3 @@
+export {
+    addRect
+} from './canvas'

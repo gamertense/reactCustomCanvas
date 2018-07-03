@@ -1,3 +1,4 @@
+import * as actionTypes from './actions/actionTypes';
 const update = require('immutability-helper');
 
 const initialState = {
@@ -10,7 +11,7 @@ const initialState = {
 const reducer = (state = initialState, action) => {
     let rect_name = null;
     switch (action.type) {
-        case 'ADD_RECT':
+        case actionTypes.ADD_RECT:
             console.log(state);
             const objid = Math.random().toString(36).substr(2, 9);
             const new_rect = {objid: objid, color: action.color, x: Math.random() * 100, y: Math.random() * 100};
