@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import {Button} from 'reactstrap';
-
+import {ClipLoader} from 'react-spinners';
 
 import './Tool.css';
 
@@ -23,12 +23,22 @@ class Tool extends Component {
                     className="fas fa-eraser"></i> Remove</Button>
                 <Button className="Button" color="danger" onClick={() => this.onBtnClick('clear')}><i
                     className="fas fa-trash-alt"></i> Clear Canvas</Button>
-                <Button className="float-right " color="success" onClick={this.props.onSubmitHandler}><i
-                    className="fas fa-paper-plane"></i> Submit</Button>
+                <Button className="float-right" color="success" onClick={this.props.onSubmitHandler}><i
+                    className="fas fa-paper-plane"></i> Submit <ClipLoader
+                    size={18}
+                    color={'#80ea6b'}
+                    loading={this.props.ld}
+                /></Button>
             </div>
         );
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        ld: state.loading
+    }
+};
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -38,4 +48,4 @@ const mapDispatchToProps = dispatch => {
     }
 };
 
-export default connect(null, mapDispatchToProps)(Tool);
+export default connect(mapStateToProps, mapDispatchToProps)(Tool);

@@ -28,15 +28,17 @@ class Canvas extends Component {
     };
 
     onSubmitHandler = () => {
+        this.props.setLoading(true);
         const imgid = Math.random().toString(36).substr(2, 9);
         let imgURL = this.stageRef.getStage().toDataURL();
         imgURL = imgURL.replace('data:image/png;base64,', '');
 
         console.log(imgid);
-        axios.post('http://127.0.0.1/flask/post', {imgid: imgid, imgdata: imgURL}).then(function (response) {
+        axios.post('https://jsonplaceholder.typicode.com/posts', {imgid: imgid, imgdata: imgURL}).then(function (response) {
             console.log(response);
+            this.props.setLoading(false);
         }).catch(function (error) {
-            console.log(error);
+            alert(error);
         });
     };
 
@@ -67,14 +69,16 @@ const mapStateToProps = state => {
     return {
         rectangles: state.rectangles,
         sobj: state.selectedObj,
-        showTrans: state.showTransformer
+        showTrans: state.showTransformer,
+        ld: state.loading
     }
 };
 
 const mapDispatchToProps = dispatch => {
     return {
         updateSelected: (name) => dispatch({'type': 'UPDATE_SELECT', 'name': name}),
-        updateTransform: (action) => dispatch({'type': 'UPDATE_TRANSFORM', 'action': action})
+        updateTransform: (action) => dispatch({'type': 'UPDATE_TRANSFORM', 'action': action}),
+        setLoading: (bool) => dispatch({'type': 'SET_LOAD', 'bool': bool})
     }
 };
 
