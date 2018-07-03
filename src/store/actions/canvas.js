@@ -20,3 +20,10 @@ export const updateScale = (e) => {
         event: e
     };
 };
+
+export const updateSelected = (name) => {
+    return {
+        type: actionTypes.UPDATE_SELECTED,
+        name: name
+    };
+};

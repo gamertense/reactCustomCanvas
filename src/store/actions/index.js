@@ -1,5 +1,6 @@
 export {
     addRect,
     updateLocation,
-    updateScale
+    updateScale,
+    updateSelected
 } from './canvas'
