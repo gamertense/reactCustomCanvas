@@ -34,9 +34,9 @@ class Canvas extends Component {
         imgURL = imgURL.replace('data:image/png;base64,', '');
 
         console.log(imgid);
-        axios.post('https://jsonplaceholder.typicode.com/posts', {imgid: imgid, imgdata: imgURL}).then(function (response) {
+        axios.post('http://localhost/flask/post', {imgid: imgid, imgdata: imgURL}).then(function (response) {
             console.log(response);
-            this.props.setLoading(false);
+
         }).catch(function (error) {
             alert(error);
         });
