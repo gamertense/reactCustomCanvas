@@ -1,4 +1,5 @@
 import * as actionTypes from './actions/actionTypes';
+
 const update = require('immutability-helper');
 
 const initialState = {
@@ -12,14 +13,13 @@ const reducer = (state = initialState, action) => {
     let rect_name = null;
     switch (action.type) {
         case actionTypes.ADD_RECT:
-            console.log(state);
             const objid = Math.random().toString(36).substr(2, 9);
             const new_rect = {objid: objid, color: action.color, x: Math.random() * 100, y: Math.random() * 100};
             return {
                 ...state,
                 rectangles: update(state.rectangles, {$push: [new_rect]})
             };
-        case 'LOCATION':
+        case actionTypes.UPDATE_LOCATION:
             rect_name = action.event.target.attrs.name;
             const new_x = action.event.target.attrs.x;
             const new_y = action.event.target.attrs.y;
@@ -27,7 +27,7 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 rectangles: updateState(state, rect_name, action.type, new_x, new_y)
             };
-        case 'TRANSFORM':
+        case actionTypes.UPDATE_SCALE:
             rect_name = action.event.target.attrs.name;
             const scale_x = action.event.target.attrs.scaleX;
             const scale_y = action.event.target.attrs.scaleY;
@@ -56,7 +56,6 @@ const reducer = (state = initialState, action) => {
         case 'UPDATE_TRANSFORM':
             switch (action.action) {
                 case 'remove':
-                    console.log('removed');
                     return {...state, showTransformer: false};
                 default:
                     return {...state, showTransformer: true};

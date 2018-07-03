@@ -1,3 +1,5 @@
 export {
-    addRect
+    addRect,
+    updateLocation,
+    updateScale
 } from './canvas'

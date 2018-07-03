@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {Rect} from "react-konva";
 import {connect} from 'react-redux';
+import * as actionCreators from '../store/actions/index'
 
 class ColoredRect extends Component {
     render() {
@@ -23,8 +24,8 @@ class ColoredRect extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        updateLocation: (e) => dispatch({'type': 'LOCATION', 'event': e}),
-        updateScale: (e) => dispatch({'type': 'TRANSFORM', 'event': e}),
+        updateLocation: (e) => dispatch(actionCreators.updateLocation(e)),
+        updateScale: (e) => dispatch(actionCreators.updateScale(e)),
     }
 };
 

@@ -6,3 +6,17 @@ export const addRect = (name, color) => {
         name: name, color: color
     };
 };
+
+export const updateLocation = (e) => {
+    return {
+        type: actionTypes.UPDATE_LOCATION,
+        event: e
+    };
+};
+
+export const updateScale = (e) => {
+    return {
+        type: actionTypes.UPDATE_SCALE,
+        event: e
+    };
+};
