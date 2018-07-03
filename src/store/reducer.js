@@ -1,3 +1,5 @@
+import * as actionTypes from './actions/actionTypes';
+
 const update = require('immutability-helper');
 
 const initialState = {
@@ -10,15 +12,14 @@ const initialState = {
 const reducer = (state = initialState, action) => {
     let rect_name = null;
     switch (action.type) {
-        case 'ADD_RECT':
-            console.log(state);
+        case actionTypes.ADD_RECT:
             const objid = Math.random().toString(36).substr(2, 9);
             const new_rect = {objid: objid, color: action.color, x: Math.random() * 100, y: Math.random() * 100};
             return {
                 ...state,
                 rectangles: update(state.rectangles, {$push: [new_rect]})
             };
-        case 'LOCATION':
+        case actionTypes.LOCATION:
             rect_name = action.event.target.attrs.name;
             const new_x = action.event.target.attrs.x;
             const new_y = action.event.target.attrs.y;
@@ -26,7 +27,7 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 rectangles: updateState(state, rect_name, action.type, new_x, new_y)
             };
-        case 'TRANSFORM':
+        case actionTypes.TRANSFORM:
             rect_name = action.event.target.attrs.name;
             const scale_x = action.event.target.attrs.scaleX;
             const scale_y = action.event.target.attrs.scaleY;
@@ -34,33 +35,31 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 rectangles: updateState(state, rect_name, action.type, scale_x, scale_y)
             };
-        case 'UPDATE_SELECT':
+        case actionTypes.UPDATE_SELECTED:
             return {
                 ...state,
                 selectedObj: action.name
             };
-        case 'REMOVE':
+        case actionTypes.REMOVE:
             const rect_index = state.rectangles.findIndex(rect => {
                 return rect.objid === state.selectedObj;
             });
-            console.log(rect_index);
             return update(state, {
                 rectangles: {
                     $splice: [[rect_index, 1]]
                 }
             });
 
-        case 'CLEAR_CANVAS':
+        case actionTypes.CLEAR_CANVAS:
             return {...state, rectangles: []};
-        case 'UPDATE_TRANSFORM':
+        case actionTypes.UPDATE_TRANSFORM:
             switch (action.action) {
                 case 'remove':
-                    console.log('removed');
                     return {...state, showTransformer: false};
                 default:
                     return {...state, showTransformer: true};
             }
-        case 'SET_LOAD':
+        case actionTypes.SET_LOADING:
             return {...state, loading: action.bool};
         default:
             return state;

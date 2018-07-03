@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import {connect} from 'react-redux';
 import {Stage, Layer, Transformer} from "react-konva";
 import axios from 'axios';
+import * as actionCreators from '../../store/actions/index';
 
 import ColoredRect from '../ColoredRect';
 import Tool from '../Tool/Tool';
@@ -76,9 +77,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        updateSelected: (name) => dispatch({'type': 'UPDATE_SELECT', 'name': name}),
-        updateTransform: (action) => dispatch({'type': 'UPDATE_TRANSFORM', 'action': action}),
-        setLoading: (bool) => dispatch({'type': 'SET_LOAD', 'bool': bool})
+        updateSelected: (name) => dispatch(actionCreators.updateSelected(name)),
+        updateTransform: (action) => dispatch(actionCreators.updateTransform(action)),
+        setLoading: (bool) => dispatch(actionCreators.setLoading(bool))
     }
 };
 

@@ -1,8 +1,9 @@
 import React, {Component} from "react"
 import {connect} from 'react-redux'
 import {Button, Col, Row, Container, Input} from 'reactstrap'
+import * as actionCreators from '../../store/actions/index';
 
-import data from '../../store/btnLookup.json'
+import data from '../../store/ButtonsList/btnLookup'
 import './Sidebar.css'
 
 class Sidebar extends Component {
@@ -50,7 +51,7 @@ class Sidebar extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addRect: (name, color) => dispatch({'type': 'ADD_RECT', 'name': name, 'color': color})
+        addRect: (name, color) => dispatch(actionCreators.addRect(name, color))
     }
 };
 
