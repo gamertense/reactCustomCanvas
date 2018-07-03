@@ -3,7 +3,8 @@ const update = require('immutability-helper');
 const initialState = {
     rectangles: [],
     selectedObj: '',
-    showTransformer: true
+    showTransformer: true,
+    loading: false
 };
 
 const reducer = (state = initialState, action) => {
@@ -59,6 +60,8 @@ const reducer = (state = initialState, action) => {
                 default:
                     return {...state, showTransformer: true};
             }
+        case 'SET_LOAD':
+            return {...state, loading: action.bool};
         default:
             return state;
 
