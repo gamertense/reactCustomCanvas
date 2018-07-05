@@ -1,4 +1,6 @@
 export const ADD_RECT = 'ADD_RECT';
+export const UPDATE_TRANSFORM = 'UPDATE_TRANSFORM';
 export const UPDATE_LOCATION = 'UPDATE_LOCATION';
 export const UPDATE_SCALE = 'UPDATE_SCALE';
 export const UPDATE_SELECTED = 'UPDATE_SELECTED';
+export const SET_LOADING = 'SET_LOADING';

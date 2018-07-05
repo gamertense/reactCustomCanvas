@@ -60,7 +60,7 @@ const reducer = (state = initialState, action) => {
                 default:
                     return {...state, showTransformer: true};
             }
-        case 'SET_LOAD':
+        case actionTypes.SET_LOADING:
             return {...state, loading: action.bool};
         default:
             return state;

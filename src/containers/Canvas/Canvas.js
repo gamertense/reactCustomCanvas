@@ -31,16 +31,16 @@ class Canvas extends Component {
     onSubmitHandler = () => {
         this.props.setLoading(true);
         const imgid = Math.random().toString(36).substr(2, 9);
-        let imgURL = this.stageRef.getStage().toDataURL();
-        imgURL = imgURL.replace('data:image/png;base64,', '');
-
+        let imgdata_base64 = this.stageRef.getStage().toDataURL();
+        imgdata_base64 = imgdata_base64.replace('data:image/png;base64,', '');
         console.log(imgid);
-        axios.post('http://localhost/flask/post', {imgid: imgid, imgdata: imgURL}).then(function (response) {
-            console.log(response);
-
-        }).catch(function (error) {
-            alert(error);
-        });
+        this.props.postData(imgid, imgdata_base64)
+        // axios.post('http://localhost/flask/post', {imgid: imgid, imgdata: imgURL}).then(function (response) {
+        //     console.log(response);
+        //
+        // }).catch(function (error) {
+        //     alert(error);
+        // });
     };
 
     render() {
@@ -70,16 +70,16 @@ const mapStateToProps = state => {
     return {
         rectangles: state.rectangles,
         sobj: state.selectedObj,
-        showTrans: state.showTransformer,
-        ld: state.loading
+        showTrans: state.showTransformer
     }
 };
 
 const mapDispatchToProps = dispatch => {
     return {
         updateSelected: (name) => dispatch(actionCreators.updateSelected(name)),
-        updateTransform: (action) => dispatch({'type': 'UPDATE_TRANSFORM', 'action': action}),
-        setLoading: (bool) => dispatch({'type': 'SET_LOAD', 'bool': bool})
+        updateTransform: (action) => dispatch(actionCreators.updateTransform(action)),
+        setLoading: (bool) => dispatch(actionCreators.setLoading(bool)),
+        postData: (imgid, imgdata) => dispatch(actionCreators.postData(imgid, imgdata))
     }
 };
 

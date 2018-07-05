@@ -2,5 +2,8 @@ export {
     addRect,
     updateLocation,
     updateScale,
-    updateSelected
+    updateSelected,
+    updateTransform,
+    setLoading,
+    postData
 } from './canvas'
