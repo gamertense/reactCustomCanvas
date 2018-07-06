@@ -1,4 +1,8 @@
 import React, {Component} from "react";
+import {library} from '@fortawesome/fontawesome-svg-core'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faEraser, faTrash, faPaperPlane} from '@fortawesome/free-solid-svg-icons'
+
 import {connect} from "react-redux";
 import {Button} from 'reactstrap';
 import {ClipLoader} from 'react-spinners';
@@ -18,14 +22,17 @@ class Tool extends Component {
     };
 
     render() {
+        library.add(faEraser);
+        library.add(faTrash);
+        library.add(faPaperPlane);
         return (
             <div className="Tool">
-                <Button className="Button" color="warning" onClick={() => this.onBtnClick('remove')}><i
-                    className="fas fa-eraser"></i> Remove</Button>
-                <Button className="Button" color="danger" onClick={() => this.onBtnClick('clear')}><i
-                    className="fas fa-trash-alt"></i> Clear Canvas</Button>
-                <Button className="float-right" color="success" onClick={this.props.onSubmitHandler}><i
-                    className="fas fa-paper-plane"></i> Submit <ClipLoader
+                <Button className="Button" color="warning" onClick={() => this.onBtnClick('remove')}><FontAwesomeIcon
+                    icon="eraser"/> Remove</Button>
+                <Button className="Button" color="danger" onClick={() => this.onBtnClick('clear')}><FontAwesomeIcon
+                    icon="trash"/> Clear Canvas</Button>
+                <Button className="float-right" color="success" onClick={this.props.onSubmitHandler}><FontAwesomeIcon
+                    icon="paper-plane"/> Submit <ClipLoader
                     size={18}
                     color={'#80ea6b'}
                     loading={this.props.ld}
