@@ -8,6 +8,18 @@ export const addRect = (name, color) => {
     };
 };
 
+export const remov = () => {
+    return {
+        type: actionTypes.REMOVE,
+    };
+};
+
+export const clearCanvas = () => {
+    return {
+        type: actionTypes.REMOVE,
+    };
+};
+
 export const updateTransform = (action) => {
     return {
         type: actionTypes.UPDATE_TRANSFORM,
@@ -56,3 +68,4 @@ export const postData = (imgid, imgdata) => {
         });
     }
 };
+

@@ -40,7 +40,7 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 selectedObj: action.name
             };
-        case 'REMOVE':
+        case actionTypes.REMOVE:
             const rect_index = state.rectangles.findIndex(rect => {
                 return rect.objid === state.selectedObj;
             });
@@ -51,7 +51,7 @@ const reducer = (state = initialState, action) => {
                 }
             });
 
-        case 'CLEAR_CANVAS':
+        case actionTypes.CLEAR_CANVAS:
             return {...state, rectangles: []};
         case 'UPDATE_TRANSFORM':
             switch (action.action) {

@@ -1,5 +1,7 @@
 export {
     addRect,
+    remov,
+    clearCanvas,
     updateLocation,
     updateScale,
     updateSelected,

@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import {Button} from 'reactstrap';
 import {ClipLoader} from 'react-spinners';
+import * as actionCreators from '../../store/actions/index';
 
 import './Tool.css';
 
@@ -42,9 +43,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        remove: () => dispatch({'type': 'REMOVE'}),
-        clearCanvas: () => dispatch({'type': 'CLEAR_CANVAS'}),
-        updateTransform: (action) => dispatch({'type': 'UPDATE_TRANSFORM', 'action': action})
+        remove: () => dispatch(actionCreators.remov()),
+        clearCanvas: () => dispatch(actionCreators.clearCanvas()),
+        updateTransform: (action) => dispatch(actionCreators.updateTransform(action))
     }
 };
 
