@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {Button, Col, Row, Container, Input} from 'reactstrap'
 import * as actionCreators from '../../store/actions/index'
 
-import data from '../../store/ButtonsList/btnLookup'
+import data from '../../store/buttonsList/btnLookup'
 import './Sidebar.css'
 
 class Sidebar extends Component {

@@ -16,7 +16,7 @@ export const remov = () => {
 
 export const clearCanvas = () => {
     return {
-        type: actionTypes.REMOVE,
+        type: actionTypes.CLEAR_CANVAS,
     };
 };
 
@@ -32,6 +32,13 @@ export const updateScale = (e) => {
         type: actionTypes.UPDATE_SCALE,
         event: e
     };
+};
+
+export const updateTransform = (action) => {
+    return {
+        type: actionTypes.UPDATE_TRANSFORM,
+        action: action
+    }
 };
 
 export const updateSelected = (name) => {
