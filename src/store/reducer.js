@@ -44,7 +44,6 @@ const reducer = (state = initialState, action) => {
             const rect_index = state.rectangles.findIndex(rect => {
                 return rect.objid === state.selectedObj;
             });
-            console.log(rect_index);
             return update(state, {
                 rectangles: {
                     $splice: [[rect_index, 1]]
@@ -53,7 +52,7 @@ const reducer = (state = initialState, action) => {
 
         case actionTypes.CLEAR_CANVAS:
             return {...state, rectangles: []};
-        case 'UPDATE_TRANSFORM':
+        case actionTypes.UPDATE_TRANSFORM:
             switch (action.action) {
                 case 'remove':
                     return {...state, showTransformer: false};

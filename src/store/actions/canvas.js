@@ -20,13 +20,6 @@ export const clearCanvas = () => {
     };
 };
 
-export const updateTransform = (action) => {
-    return {
-        type: actionTypes.UPDATE_TRANSFORM,
-        action: action
-    }
-};
-
 export const updateLocation = (e) => {
     return {
         type: actionTypes.UPDATE_LOCATION,
@@ -68,4 +61,3 @@ export const postData = (imgid, imgdata) => {
         });
     }
 };
-
