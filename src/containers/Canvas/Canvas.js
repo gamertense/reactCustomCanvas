@@ -35,12 +35,6 @@ class Canvas extends Component {
         imgdata_base64 = imgdata_base64.replace('data:image/png;base64,', '');
         console.log(imgid);
         this.props.postData(imgid, imgdata_base64)
-        // axios.post('http://localhost/flask/post', {imgid: imgid, imgdata: imgURL}).then(function (response) {
-        //     console.log(response);
-        //
-        // }).catch(function (error) {
-        //     alert(error);
-        // });
     };
 
     render() {

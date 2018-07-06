@@ -57,7 +57,7 @@ export const setLoading = (bool) => {
 
 export const postData = (imgid, imgdata) => {
     return dispatch => {
-        axios.post('https://jsonplaceholder.typicode.com/posts', {
+        axios.post('http://127.0.0.1/flask/post', {
             imgid: imgid,
             imgdata: imgdata
         }).then((response) => {
