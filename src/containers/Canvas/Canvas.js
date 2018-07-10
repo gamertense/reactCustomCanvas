@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import {connect} from 'react-redux';
 import {Stage, Layer, Transformer} from "react-konva";
-import axios from 'axios';
 import * as actionCreators from '../../store/actions/index';
 
 import ColoredRect from '../ColoredRect';

@@ -27,14 +27,6 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 rectangles: updateState(state, rect_name, action.type, new_x, new_y)
             };
-        case actionTypes.UPDATE_SCALE:
-            rect_name = action.event.target.attrs.name;
-            const scale_x = action.event.target.attrs.scaleX;
-            const scale_y = action.event.target.attrs.scaleY;
-            return {
-                ...state,
-                rectangles: updateState(state, rect_name, action.type, scale_x, scale_y)
-            };
         case actionTypes.UPDATE_SELECTED:
             return {
                 ...state,

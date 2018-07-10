@@ -15,7 +15,6 @@ class ColoredRect extends Component {
                 height={50}
                 fill={this.props.color}
                 onDragEnd={this.props.updateLocation}
-                onTransformEnd={this.props.updateScale}
                 draggable
             />
         );
@@ -24,8 +23,7 @@ class ColoredRect extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        updateLocation: (e) => dispatch(actionCreators.updateLocation(e)),
-        updateScale: (e) => dispatch(actionCreators.updateScale(e)),
+        updateLocation: (e) => dispatch(actionCreators.updateLocation(e))
     }
 };
 
