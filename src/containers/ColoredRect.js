@@ -4,8 +4,12 @@ import {connect} from 'react-redux';
 import * as actionCreators from '../store/actions/index'
 
 class ColoredRect extends Component {
+    onMouseHover = (e) => {
+        this.props.updateHoveredObj(e.target.attrs.name);
+        console.log(e.target.attrs.name);
+    };
+
     render() {
-        // console.log(this.props.name );
         return (
             <Rect
                 name={this.props.objectid}
@@ -15,6 +19,7 @@ class ColoredRect extends Component {
                 height={50}
                 fill={this.props.color}
                 onDragEnd={this.props.updateLocation}
+                onMouseOver={this.onMouseHover}
                 draggable
             />
         );
@@ -23,7 +28,8 @@ class ColoredRect extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        updateLocation: (e) => dispatch(actionCreators.updateLocation(e))
+        updateLocation: (e) => dispatch(actionCreators.updateLocation(e)),
+        updateHoveredObj: (e) => dispatch(actionCreators.updateHoveredObj(e))
     }
 };
 

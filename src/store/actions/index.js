@@ -3,8 +3,8 @@ export {
     remov,
     clearCanvas,
     updateLocation,
-    updateScale,
     updateSelected,
+    updateHoveredObj,
     updateTransform,
     setLoading,
     postData

@@ -42,7 +42,9 @@ class Canvas extends Component {
                          y={rectangle.y}/>);
         return (
             <div>
-                <Stage className="Stage" width={700} height={400} onClick={this.onClickHandler} ref={node => {
+                {this.props.hobj}
+                <Stage className="Stage" width={700} height={400} onClick={this.onClickHandler}
+                        ref={node => {
                     this.stageRef = node
                 }}>
                     <Layer>
@@ -63,6 +65,7 @@ const mapStateToProps = state => {
     return {
         rectangles: state.rectangles,
         sobj: state.selectedObj,
+        hobj: state.hoveredObj,
         showTrans: state.showTransformer
     }
 };

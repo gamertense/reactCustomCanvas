@@ -27,13 +27,6 @@ export const updateLocation = (e) => {
     };
 };
 
-export const updateScale = (e) => {
-    return {
-        type: actionTypes.UPDATE_SCALE,
-        event: e
-    };
-};
-
 export const updateTransform = (action) => {
     return {
         type: actionTypes.UPDATE_TRANSFORM,
@@ -44,6 +37,13 @@ export const updateTransform = (action) => {
 export const updateSelected = (name) => {
     return {
         type: actionTypes.UPDATE_SELECTED,
+        name: name
+    };
+};
+
+export const updateHoveredObj = (name) => {
+    return {
+        type: actionTypes.UPDATE_HOVER,
         name: name
     };
 };
