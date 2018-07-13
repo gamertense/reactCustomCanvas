@@ -5,13 +5,14 @@ import * as actionCreators from '../store/actions/index'
 
 class ColoredRect extends Component {
     onMouseHover = (e) => {
-        this.props.updateHoveredObj(e.target.attrs.name);
-        console.log(e.target.attrs.name);
+        this.props.updateHoveredObj(e.target.attrs.btnName);
+        console.log(e.target.attrs);
     };
 
     render() {
         return (
             <Rect
+                btnName={this.props.btnName}
                 name={this.props.objectid}
                 x={this.props.x}
                 y={this.props.y}

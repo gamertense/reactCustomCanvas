@@ -39,7 +39,7 @@ class Canvas extends Component {
     render() {
         const listRect = this.props.rectangles.map(rectangle =>
             <ColoredRect key={rectangle.objid} objectid={rectangle.objid} color={rectangle.color} x={rectangle.x}
-                         y={rectangle.y}/>);
+                         y={rectangle.y} btnName={rectangle.btnName}/>);
         return (
             <div>
                 {this.props.hobj}
