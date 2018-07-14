@@ -44,9 +44,9 @@ class Canvas extends Component {
             <div>
                 {this.props.hobj}
                 <Stage className="Stage" width={700} height={400} onClick={this.onClickHandler}
-                        ref={node => {
-                    this.stageRef = node
-                }}>
+                       ref={node => {
+                           this.stageRef = node
+                       }}>
                     <Layer>
                         {listRect}
                         {this.props.showTrans ? <Transformer ref={node => {
