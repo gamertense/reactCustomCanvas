@@ -5,6 +5,7 @@ import * as actionCreators from '../../store/actions/index';
 
 import ColoredRect from '../ColoredRect';
 import Tool from '../Tool/Tool';
+import Tooltip from '../Tooltip';
 import './Canvas.css';
 
 class Canvas extends Component {
@@ -42,12 +43,12 @@ class Canvas extends Component {
                          y={rectangle.y} btnName={rectangle.btnName}/>);
         return (
             <div>
-                {this.props.hobj}
                 <Stage className="Stage" width={700} height={400} onClick={this.onClickHandler}
                        ref={node => {
                            this.stageRef = node
                        }}>
                     <Layer>
+                        <Tooltip/>
                         {listRect}
                         {this.props.showTrans ? <Transformer ref={node => {
                             this.transformer = node;
@@ -65,7 +66,6 @@ const mapStateToProps = state => {
     return {
         rectangles: state.rectangles,
         sobj: state.selectedObj,
-        hobj: state.hoveredObj,
         showTrans: state.showTransformer
     }
 };
