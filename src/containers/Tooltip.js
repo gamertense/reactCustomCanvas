@@ -5,8 +5,8 @@ import {Label, Tag, Text} from 'react-konva';
 class Tooltip extends Component {
     render() {
         return (
-            <Label x={170}
-                   y={75}
+            <Label x={this.props.tooltip.clientX}
+                   y={this.props.tooltip.clientY}
                    opacity={0.75}>
                 <Tag fill='black'
                      pointerDirection='down'
@@ -17,7 +17,7 @@ class Tooltip extends Component {
                      shadowBlur={10}
                      shadowOffset={10}
                      shadowOpacity={0.5}/>
-                <Text text='Tooltip pointing down'
+                <Text text={this.props.tooltip.btnName}
                       fontFamily='Calibri'
                       fontSize={18}
                       padding={5}
@@ -29,7 +29,7 @@ class Tooltip extends Component {
 
 const mapStateToProps = state => {
     return {
-        hobj: state.hoveredObj,
+        tooltip: state.tooltip,
     }
 };
 

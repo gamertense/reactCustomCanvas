@@ -5,7 +5,7 @@ const update = require('immutability-helper');
 const initialState = {
     rectangles: [],
     selectedObj: '',
-    hoveredObj: '',
+    tooltip: {btnName: '', clientX: 0, clientY: 0},
     showTransformer: true,
     loading: false
 };
@@ -39,10 +39,10 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 selectedObj: action.name
             };
-        case actionTypes.UPDATE_HOVER:
+        case actionTypes.UPDATE_TOOLTIP:
             return {
                 ...state,
-                hoveredObj: action.name
+                tooltip: {btnName: action.btnName, clientX: action.clientX, clientY: action.clientY}
             };
         case actionTypes.REMOVE:
             const rect_index = state.rectangles.findIndex(rect => {

@@ -9,6 +9,18 @@ import Tooltip from '../Tooltip';
 import './Canvas.css';
 
 class Canvas extends Component {
+    onMouseMove = (e) => {
+        switch (e.target.nodeType) {
+            case 'Stage':
+                this.props.updateTooltip('', 0, 0);
+                break;
+            case 'Shape':
+                const getCoord = this.stageRef.getStage().getPointerPosition();
+                this.props.updateTooltip(e.target.attrs.btnName, getCoord.x, getCoord.y);
+                break;
+        }
+    };
+
     onClickHandler = (e) => {
         const stage = this.transformer.getStage();
         switch (e.target.nodeType) {
@@ -44,16 +56,16 @@ class Canvas extends Component {
         return (
             <div>
                 <Stage className="Stage" width={700} height={400} onClick={this.onClickHandler}
+                       onMouseMove={this.onMouseMove}
                        ref={node => {
                            this.stageRef = node
                        }}>
                     <Layer>
-                        <Tooltip/>
                         {listRect}
                         {this.props.showTrans ? <Transformer ref={node => {
                             this.transformer = node;
                         }}/> : null}
-
+                        <Tooltip/>
                     </Layer>
                 </Stage>
                 <Tool onSubmitHandler={this.onSubmitHandler}/>
@@ -72,6 +84,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
+        updateTooltip: (btnName, clientX, clientY) => dispatch(actionCreators.updateTooltip(btnName, clientX, clientY)),
         updateSelected: (name) => dispatch(actionCreators.updateSelected(name)),
         updateTransform: (action) => dispatch(actionCreators.updateTransform(action)),
         setLoading: (bool) => dispatch(actionCreators.setLoading(bool)),

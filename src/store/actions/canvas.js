@@ -41,10 +41,12 @@ export const updateSelected = (name) => {
     };
 };
 
-export const updateHoveredObj = (name) => {
+export const updateTooltip = (btnName, clientX, clientY) => {
     return {
-        type: actionTypes.UPDATE_HOVER,
-        name: name
+        type: actionTypes.UPDATE_TOOLTIP,
+        btnName: btnName,
+        clientX: clientX,
+        clientY: clientY
     };
 };
 

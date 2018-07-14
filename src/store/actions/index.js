@@ -4,7 +4,7 @@ export {
     clearCanvas,
     updateLocation,
     updateSelected,
-    updateHoveredObj,
+    updateTooltip,
     updateTransform,
     setLoading,
     postData
