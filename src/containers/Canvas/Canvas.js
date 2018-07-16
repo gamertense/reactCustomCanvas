@@ -44,7 +44,6 @@ class Canvas extends Component {
         this.props.setLoading(true);
         const imgid = Math.random().toString(36).substr(2, 9);
         let imgdata_base64 = this.stageRef.getStage().toDataURL();
-        imgdata_base64 = imgdata_base64.replace('data:image/png;base64,', '');
         console.log(imgid);
         this.props.postData(imgid, imgdata_base64)
     };
