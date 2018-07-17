@@ -61,7 +61,8 @@ export const postData = (imgid, imgdata) => {
     return dispatch => {
         axios.post('http://127.0.0.1/flask/post', {
             imgid: imgid,
-            imgdata: imgdata
+            imgdata: imgdata,
+            imgtype: 'color'
         }).then((response) => {
             console.log(response);
             dispatch(setLoading(false));
