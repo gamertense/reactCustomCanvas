@@ -6,6 +6,8 @@ A user-defined buttons toolbox canvas.
 3. Type `npm install` or `yarn install` if you have yarn installed. on the Terminal and wait for it to finish downloading all required node modules.
 4. Type `npm start` or `yarn start` if you have yarn installed. You will see another browser tab popped up in a second.
 
+![alt text](https://github.com/gamertense/reactCustomCanvas/raw/master/readme_images/app_screenshot.png "Our React application")
+
 > This React app has Redux connected.
 
 # Styling button names and colors
@@ -14,6 +16,9 @@ The name and color of each button is generated from **btnLookup.json** which is 
 > Don't remove `"rectangles": [... your desired button styles ..]`, otherwise the application will collapsed.
 
 I also keep **lookupCreator.js** for a reference. If you open it, you will see there is a for loop statement iterated 100 times.
+
+# Change image export size
+
 
 # Deployment
 ## Configuring app's basename in react-router
