@@ -18,6 +18,8 @@ class Canvas extends Component {
                 const getCoord = this.stageRef.getStage().getPointerPosition();
                 this.props.updateTooltip(e.target.attrs.btnName, getCoord.x, getCoord.y);
                 break;
+            default:
+                break;
         }
     };
 
