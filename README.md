@@ -1,8 +1,8 @@
 A user-defined buttons toolbox canvas.
 
 # Installation
-1. Clone this repository to your computer.
-2. Open Terminal under your project directory. For example, if you clone into **_/home/gamertense/Documents_**. You need to type `cd /home/gamertense/Documents/reactCustomCanvas`
+1. Clone this repository to your computer. Type `git clone https://github.com/gamertense/reactCustomCanvas.git` on Terminal.
+2. Open Terminal under your project directory. For example, if you clone into **_/home/gamertense/Documents_**. You need to type `cd /home/gamertense/Documents/reactCustomCanvas`.
 3. Type `npm install` or `yarn install` if you have yarn installed. on the Terminal and wait for it to finish downloading all required node modules.
 4. Type `npm start` or `yarn start` if you have yarn installed. You will see another browser tab popped up in a second.
 
@@ -13,7 +13,7 @@ The name and color of each button is generated from **btnLookup.json** which is 
 
 > Don't remove `"rectangles": [... your desired button styles ..]`, otherwise the application will collapsed.
 
-I also keep **lookupCreator.js** for a reference. If you open it, you will see there is a for-loop for 100 iterations.
+I also keep **lookupCreator.js** for a reference. If you open it, you will see there is a for loop statement iterated 100 times.
 
 # Deployment
 ## Configuring app's basename in react-router
