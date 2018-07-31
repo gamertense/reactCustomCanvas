@@ -3,7 +3,7 @@ A user-defined buttons toolbox canvas.
 # Installation
 1. Clone this repository to your computer. Type `git clone https://github.com/gamertense/reactCustomCanvas.git` on Terminal.
 2. Open Terminal under your project directory. For example, if you clone into **_/home/gamertense/Documents_**. You need to type `cd /home/gamertense/Documents/reactCustomCanvas`.
-3. Type `npm install` or `yarn install` if you have yarn installed. on the Terminal and wait for it to finish downloading all required node modules.
+3. Type `npm install` or `yarn install` if you have yarn installed on the Terminal and wait for it to finish downloading all required node modules.
 4. Type `npm start` or `yarn start` if you have yarn installed. You will see another browser tab popped up in a second.
 
 ![alt text](https://github.com/gamertense/reactCustomCanvas/raw/master/readme_images/app_screenshot.png "Our React application")
