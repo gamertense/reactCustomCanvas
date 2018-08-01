@@ -76,7 +76,7 @@ Before deploying to either a real server or virtual server, you must change app'
 ```javascript
 // Inside reactCustomCanvas/src/App.js
 render() {
-    const publicPath = '/react/'; //Change this variable.
+    const publicPath = '/react/'; //Change this variable to, for example, /yourapp/react/
     return (
         <BrowserRouter basename={publicPath}>
             <Route exact path='/' component={View}/>
