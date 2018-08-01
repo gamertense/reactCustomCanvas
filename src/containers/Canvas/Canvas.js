@@ -56,7 +56,7 @@ class Canvas extends Component {
                          y={rectangle.y} btnName={rectangle.btnName}/>);
         return (
             <div>
-                <Stage className="Stage" width={700} height={400} onClick={this.onClickHandler}
+                <Stage className="Stage" width={600} height={400} onClick={this.onClickHandler}
                        onMouseMove={this.onMouseMove}
                        ref={node => {
                            this.stageRef = node
