@@ -11,7 +11,7 @@ A user-defined buttons toolbox canvas.
 > This React app has Redux connected.
 
 # Modification
-## Styling button names and colors
+## Styling Button Names and Colors
 The name and color of each button is generated from **btnLookup.json** which is located in **_reactCustomCanvas/src/store/buttonsList/_**. This file has 100 buttons and you may not get the idea of its structure. So I created a simpler version which has only three buttons in **btnLookup - old.json**.
 ```javascript
 // Inside btnLookup - old.json
@@ -36,7 +36,7 @@ The name and color of each button is generated from **btnLookup.json** which is 
 
 I also keep **lookupCreator.js** for a reference. If you open it, you will see there is a for loop statement iterated 100 times.
 
-## Changing canvas width & height
+## Changing Canvas Width & Height
 ```javascript
 // Inside reactCustomCanvas/src/containers/Canvas/Canvas.js
 return (
@@ -53,7 +53,7 @@ return (
 ```
 > Keep in mind that changing width & height affect the export image width & height. Therefore, I resize the image to the desired resolution at the server-side (Flask app).
 
-## Changing Flask endpoint
+## Changing Flask Endpoint
 
 ```javascript
 // Inside reactCustomCanvas/src/store/actions/canvas.js
@@ -70,7 +70,7 @@ export const postData = (imgid, imgdata) => {
 ```
 
 # Deployment
-## Configuring app's basename in react-router
+## Configuring App's Basename in react-router
 Before deploying to either a real server or virtual server, you must change app's basename in **App.js** by changing variable **publicPath** to the desired name. The default path is under **react** directory which is accessed by **_localhost/react_** on a browser.
 
 ```javascript
@@ -85,6 +85,6 @@ render() {
 }
 ```
 
-## Deploy command
+## Deployment From The Command-Line
 1. Type `npm run build` or `yarn build`. You will see a `build` folder created.
 2. Copy all files under `build` folder to the server (The default path is `/var/www/html/react`)
