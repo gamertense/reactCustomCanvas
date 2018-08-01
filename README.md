@@ -17,15 +17,35 @@ The name and color of each button is generated from **btnLookup.json** which is 
 
 I also keep **lookupCreator.js** for a reference. If you open it, you will see there is a for loop statement iterated 100 times.
 
-# Change image export size
+# Changing image export size
 
+
+# Changing Flask endpoint
+
+```javascript
+// Inside reactCustomCanvas/src/store/actions/canvas.js
+export const postData = (imgid, imgdata) => {
+    return dispatch => {
+        axios.post('http://127.0.0.1/flask/post', { // Change this url
+            imgid: imgid,
+            imgdata: imgdata,
+            imgtype: 'color'
+        }).then((response) => {
+            console.log(response);
+            dispatch(setLoading(false));
+        }).catch(error => {
+            alert(error);
+        });
+    }
+};
+```
 
 # Deployment
 ## Configuring app's basename in react-router
 Before deploying to either a real server or virtual server, you must change app's basename in **App.js** by changing variable **publicPath** to the desired name. The default path is under **react** directory which is accessed by **_localhost/react_** on a browser.
 
 ```javascript
-//Inside App.js
+// Inside reactCustomCanvas/src/App.js
 render() {
     const publicPath = '/react/'; //Change this variable.
     return (
