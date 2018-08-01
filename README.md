@@ -51,7 +51,7 @@ return (
     </div>
 );
 ```
-> Keep in mind that, changing width & height affect the export image width & height. Therefore, I resize the image to the desired resolution at the server-side (Flask app).
+> Keep in mind that changing width & height affect the export image width & height. Therefore, I resize the image to the desired resolution at the server-side (Flask app).
 
 ## Changing Flask endpoint
 
