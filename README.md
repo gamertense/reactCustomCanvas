@@ -19,7 +19,7 @@ The name and color of each button is generated from **btnLookup.json** which is 
     "rectangles": [
         {
             "name": "rect1",
-            "color": "red"
+            "color": "red" // or #FF0000
         },
         {
             "name": "rect2",
@@ -71,7 +71,7 @@ export const postData = (imgid, imgdata) => {
 
 # Deployment
 ## Configuring App's Basename in react-router
-Before deploying to either a real server or virtual server, you must change app's basename in **App.js** by changing variable **publicPath** to the desired name. The default path is under **react** directory which is accessed by **_localhost/react_** on a browser.
+Before deploying to either a real server or virtual server, you must change app's basename in **App.js** by changing variable **publicPath** to the desired name. The default path is under **react** directory which is accessed via **_localhost/react_** on a browser.
 
 ```javascript
 // Inside reactCustomCanvas/src/App.js
@@ -83,6 +83,12 @@ render() {
         </BrowserRouter>
     );
 }
+```
+```javascript
+// Inside reactCustomCanvas/package.json
+...
+"homepage": "/react/", // Must be the same as the publicPath variable above.
+...
 ```
 
 ## Deployment From The Command-Line
