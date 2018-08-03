@@ -94,3 +94,25 @@ render() {
 ## Deployment From The Command-Line
 1. Type `npm run build` or `yarn build`. You will see a `build` folder created.
 2. Copy all files under `build` folder to the server (The default path is `/var/www/html/react`)
+
+## Bootstrap Modal Attachment.
+In case you want to attach this React app into a bootstrap modal with `iframe`, the code below works nicely on my 13.3" screen size
+```html
+...
+ <!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog" style="width:920px;">
+        <!-- Modal content-->
+        <div class="modal-content">
+            ...
+            <div class="modal-body">
+                <iframe src="http://localhost/react" width="900" height="500">
+                    <p>Your browser does not support iframes.</p>
+                </iframe>
+            </div>
+            ...
+        </div>
+    </div>
+</div>
+```
+Notice that you can change its source, width, and height from `<iframe src="http://localhost/react" width="900" height="500">`.
