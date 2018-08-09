@@ -95,7 +95,7 @@ render() {
 1. Type `npm run build` or `yarn build`. You will see a `build` folder created.
 2. Copy all files under `build` folder to the server (The default path is `/var/www/html/react`)
 
-## Bootstrap Modal Attachment.
+## Bootstrap Modal Attachment
 In case you want to attach this React app into a bootstrap modal with `iframe`, the code below works nicely on my 13.3" screen size
 ```html
 ...
